@@ -56,6 +56,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,23 +129,79 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InsuranceController.cs" />
+    <Compile Include="DAL\PolicyRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="InsuranceModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InsuranceModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InsuranceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InsuranceModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InsuranceModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Participant.cs" />
+    <Compile Include="Models\Policy.cs" />
+    <Compile Include="Models\PolicyViewModel.cs" />
+    <Compile Include="Policies.cs">
+      <DependentUpon>InsuranceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PolicyType.cs">
+      <DependentUpon>InsuranceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="usp_GetParticipantsByType_Result.cs">
+      <DependentUpon>InsuranceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_GetPolicyTypes_Result.cs">
+      <DependentUpon>InsuranceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_SearchPolicy_Result.cs">
+      <DependentUpon>InsuranceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="vw_Policies.cs">
+      <DependentUpon>InsuranceModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\NewPolicy.css" />
+    <Content Include="Content\Layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="InsuranceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InsuranceModel.edmx</DependentUpon>
+      <LastGenOutput>InsuranceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="InsuranceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>InsuranceModel.edmx</DependentUpon>
+      <LastGenOutput>InsuranceModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="InsuranceModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>InsuranceModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="InsuranceModel.edmx.diagram">
+      <DependentUpon>InsuranceModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -166,13 +224,12 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Insurance\NewPolicy.cshtml" />
+    <Content Include="Views\Insurance\Policies.cshtml" />
+    <Content Include="Views\Insurance\Some.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -186,6 +243,9 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

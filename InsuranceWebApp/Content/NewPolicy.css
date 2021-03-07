@@ -1,0 +1,45 @@
+﻿.field {
+    margin: 25px 0 25px;
+    padding: 0 30px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.form-control, .input-group-prepend, .input-group-text {
+    min-height: 50px;
+    font-size: 1.15rem;
+}
+
+
+.form-select {
+    min-height: 50px;
+    font-size: 1.15rem;
+}
+
+
+.form {
+    margin: 10% 5% 5%;
+}
+
+button {
+    margin-left: 16px;
+    margin-top: 25px;
+}
+
+h2 {
+    padding-bottom: 30px;
+    padding-left: 16px;
+}
+
+.input-group {
+    padding: 20px 10px;
+}
+
+
+.table {
+    font-size: 14px;
+}
+

@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="InsuranceDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Policies">
+          <Key>
+            <PropertyRef Name="PolicyNumber" />
+          </Key>
+          <Property Name="PolicyNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PlanNumber" Type="int" Nullable="false" />
+          <Property Name="InstallmentPremium" Type="float" Nullable="false" />
+          <Property Name="Insured" Type="int" Nullable="false" />
+          <Property Name="SumAssured" Type="float" Nullable="false" />
+          <Property Name="PolicyStatus" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PremiumMode" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PremiumDueDate" Type="date" Nullable="false" />
+          <Property Name="Beneficiary" Type="int" Nullable="false" />
+          <Property Name="Owner" Type="int" Nullable="false" />
+          <Property Name="PolicyTerm" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PolicyType">
+          <Key>
+            <PropertyRef Name="PlanNumber" />
+          </Key>
+          <Property Name="PlanNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PolicyName" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'InsuranceDB.dbo.vw_Policies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vw_Policies">
+          <Key>
+            <PropertyRef Name="PolicyNumber" />
+            <PropertyRef Name="PolicyName" />
+            <PropertyRef Name="InstallmentPremium" />
+            <PropertyRef Name="Insured" />
+            <PropertyRef Name="SumAssured" />
+            <PropertyRef Name="PolicyStatus" />
+            <PropertyRef Name="PremiumMode" />
+            <PropertyRef Name="PremiumDueDate" />
+            <PropertyRef Name="Beneficiary" />
+            <PropertyRef Name="Owner" />
+            <PropertyRef Name="PolicyTerm" />
+          </Key>
+          <Property Name="PolicyNumber" Type="int" Nullable="false" />
+          <Property Name="PolicyName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="InstallmentPremium" Type="float" Nullable="false" />
+          <Property Name="Insured" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="SumAssured" Type="float" Nullable="false" />
+          <Property Name="PolicyStatus" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PremiumMode" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PremiumDueDate" Type="date" Nullable="false" />
+          <Property Name="Beneficiary" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Owner" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="PolicyTerm" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Policies__PlanNu__2B3F6F97">
+          <End Role="PolicyType" Type="Self.PolicyType" Multiplicity="1" />
+          <End Role="Policies" Type="Self.Policies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PolicyType">
+              <PropertyRef Name="PlanNumber" />
+            </Principal>
+            <Dependent Role="Policies">
+              <PropertyRef Name="PlanNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_DeletePolicy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="policyNumber" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_EditPolicy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="policyNumber" Type="int" Mode="In" />
+          <Parameter Name="planNo" Type="int" Mode="In" />
+          <Parameter Name="installmentPremium" Type="float" Mode="In" />
+          <Parameter Name="insured" Type="int" Mode="In" />
+          <Parameter Name="sumAssured" Type="float" Mode="In" />
+          <Parameter Name="policyStatus" Type="varchar" Mode="In" />
+          <Parameter Name="premiumMode" Type="varchar" Mode="In" />
+          <Parameter Name="premiumDueDate" Type="date" Mode="In" />
+          <Parameter Name="beneficiary" Type="int" Mode="In" />
+          <Parameter Name="owner" Type="int" Mode="In" />
+          <Parameter Name="policyTerm" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_GetParticipantsByType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="participantType" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetPolicyTypes" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_InsertPolicy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="planNo" Type="int" Mode="In" />
+          <Parameter Name="installmentPremium" Type="float" Mode="In" />
+          <Parameter Name="insured" Type="int" Mode="In" />
+          <Parameter Name="sumAssured" Type="float" Mode="In" />
+          <Parameter Name="policyStatus" Type="varchar" Mode="In" />
+          <Parameter Name="premiumMode" Type="varchar" Mode="In" />
+          <Parameter Name="premiumDueDate" Type="date" Mode="In" />
+          <Parameter Name="beneficiary" Type="int" Mode="In" />
+          <Parameter Name="owner" Type="int" Mode="In" />
+          <Parameter Name="policyTerm" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_SearchPolicy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="policyNumber" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="InsuranceDBModelStoreContainer">
+          <EntitySet Name="Policies" EntityType="Self.Policies" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PolicyType" EntityType="Self.PolicyType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_Policies" EntityType="Self.vw_Policies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Policies].[PolicyNumber] AS [PolicyNumber], 
+    [vw_Policies].[PolicyName] AS [PolicyName], 
+    [vw_Policies].[InstallmentPremium] AS [InstallmentPremium], 
+    [vw_Policies].[Insured] AS [Insured], 
+    [vw_Policies].[SumAssured] AS [SumAssured], 
+    [vw_Policies].[PolicyStatus] AS [PolicyStatus], 
+    [vw_Policies].[PremiumMode] AS [PremiumMode], 
+    [vw_Policies].[PremiumDueDate] AS [PremiumDueDate], 
+    [vw_Policies].[Beneficiary] AS [Beneficiary], 
+    [vw_Policies].[Owner] AS [Owner], 
+    [vw_Policies].[PolicyTerm] AS [PolicyTerm]
+    FROM [dbo].[vw_Policies] AS [vw_Policies]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__Policies__PlanNu__2B3F6F97" Association="Self.FK__Policies__PlanNu__2B3F6F97">
+            <End Role="PolicyType" EntitySet="PolicyType" />
+            <End Role="Policies" EntitySet="Policies" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="InsuranceDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Policies">
+          <Key>
+            <PropertyRef Name="PolicyNumber" />
+          </Key>
+          <Property Name="PolicyNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PlanNumber" Type="Int32" Nullable="false" />
+          <Property Name="InstallmentPremium" Type="Double" Nullable="false" />
+          <Property Name="Insured" Type="Int32" Nullable="false" />
+          <Property Name="SumAssured" Type="Double" Nullable="false" />
+          <Property Name="PolicyStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PremiumMode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PremiumDueDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Beneficiary" Type="Int32" Nullable="false" />
+          <Property Name="Owner" Type="Int32" Nullable="false" />
+          <Property Name="PolicyTerm" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PolicyType" Relationship="Self.FK__Policies__PlanNu__2B3F6F97" FromRole="Policies" ToRole="PolicyType" />
+        </EntityType>
+        <EntityType Name="PolicyType">
+          <Key>
+            <PropertyRef Name="PlanNumber" />
+          </Key>
+          <Property Name="PlanNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PolicyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Policies" Relationship="Self.FK__Policies__PlanNu__2B3F6F97" FromRole="PolicyType" ToRole="Policies" />
+        </EntityType>
+        <EntityType Name="vw_Policies">
+          <Key>
+            <PropertyRef Name="PolicyNumber" />
+            <PropertyRef Name="PolicyName" />
+            <PropertyRef Name="InstallmentPremium" />
+            <PropertyRef Name="Insured" />
+            <PropertyRef Name="SumAssured" />
+            <PropertyRef Name="PolicyStatus" />
+            <PropertyRef Name="PremiumMode" />
+            <PropertyRef Name="PremiumDueDate" />
+            <PropertyRef Name="Beneficiary" />
+            <PropertyRef Name="Owner" />
+            <PropertyRef Name="PolicyTerm" />
+          </Key>
+          <Property Name="PolicyNumber" Type="Int32" Nullable="false" />
+          <Property Name="PolicyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="InstallmentPremium" Type="Double" Nullable="false" />
+          <Property Name="Insured" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SumAssured" Type="Double" Nullable="false" />
+          <Property Name="PolicyStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PremiumMode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PremiumDueDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Beneficiary" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Owner" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PolicyTerm" Type="Int32" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Policies__PlanNu__2B3F6F97">
+          <End Role="PolicyType" Type="Self.PolicyType" Multiplicity="1" />
+          <End Role="Policies" Type="Self.Policies" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PolicyType">
+              <PropertyRef Name="PlanNumber" />
+            </Principal>
+            <Dependent Role="Policies">
+              <PropertyRef Name="PlanNumber" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="InsuranceDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Policies" EntityType="Self.Policies" />
+          <EntitySet Name="PolicyType" EntityType="Self.PolicyType" />
+          <EntitySet Name="vw_Policies" EntityType="Self.vw_Policies" />
+          <AssociationSet Name="FK__Policies__PlanNu__2B3F6F97" Association="Self.FK__Policies__PlanNu__2B3F6F97">
+            <End Role="PolicyType" EntitySet="PolicyType" />
+            <End Role="Policies" EntitySet="Policies" />
+          </AssociationSet>
+          <FunctionImport Name="usp_GetParticipantsByType" ReturnType="Collection(InsuranceDBModel.usp_GetParticipantsByType_Result)">
+          <Parameter Name="participantType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetPolicyTypes" EntitySet="PolicyType" ReturnType="Collection(InsuranceDBModel.PolicyType)" />
+          <FunctionImport Name="usp_InsertPolicy">
+            <Parameter Name="planNo" Mode="In" Type="Int32" />
+            <Parameter Name="installmentPremium" Mode="In" Type="Double" />
+            <Parameter Name="insured" Mode="In" Type="Int32" />
+            <Parameter Name="sumAssured" Mode="In" Type="Double" />
+            <Parameter Name="policyStatus" Mode="In" Type="String" />
+            <Parameter Name="premiumMode" Mode="In" Type="String" />
+            <Parameter Name="premiumDueDate" Mode="In" Type="DateTime" />
+            <Parameter Name="beneficiary" Mode="In" Type="Int32" />
+            <Parameter Name="owner" Mode="In" Type="Int32" />
+            <Parameter Name="policyTerm" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_DeletePolicy">
+          <Parameter Name="policyNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_EditPolicy">
+            <Parameter Name="policyNumber" Mode="In" Type="Int32" />
+            <Parameter Name="planNo" Mode="In" Type="Int32" />
+            <Parameter Name="installmentPremium" Mode="In" Type="Double" />
+            <Parameter Name="insured" Mode="In" Type="Int32" />
+            <Parameter Name="sumAssured" Mode="In" Type="Double" />
+            <Parameter Name="policyStatus" Mode="In" Type="String" />
+            <Parameter Name="premiumMode" Mode="In" Type="String" />
+            <Parameter Name="premiumDueDate" Mode="In" Type="DateTime" />
+            <Parameter Name="beneficiary" Mode="In" Type="Int32" />
+            <Parameter Name="owner" Mode="In" Type="Int32" />
+            <Parameter Name="policyTerm" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_SearchPolicy" ReturnType="Collection(InsuranceDBModel.usp_SearchPolicy_Result)">
+            <Parameter Name="policyNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_GetParticipantsByType_Result">
+          <Property Type="Int32" Name="ParticipantNo" Nullable="false" />
+          <Property Type="String" Name="FullName" Nullable="false" MaxLength="77" />
+        </ComplexType>
+        <ComplexType Name="usp_GetPolicyTypes_Result">
+          <Property Type="Int32" Name="PlanNumber" Nullable="false" />
+          <Property Type="String" Name="PolicyName" Nullable="false" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="usp_SearchPolicy_Result">
+          <Property Type="Int32" Name="PolicyNumber" Nullable="false" />
+          <Property Type="Int32" Name="PlanNumber" Nullable="false" />
+          <Property Type="Double" Name="InstallmentPremium" Nullable="false" />
+          <Property Type="Int32" Name="Insured" Nullable="false" />
+          <Property Type="Double" Name="SumAssured" Nullable="false" />
+          <Property Type="String" Name="PolicyStatus" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="PremiumMode" Nullable="false" MaxLength="25" />
+          <Property Type="DateTime" Name="PremiumDueDate" Nullable="false" />
+          <Property Type="Int32" Name="Beneficiary" Nullable="false" />
+          <Property Type="Int32" Name="Owner" Nullable="false" />
+          <Property Type="Int32" Name="PolicyTerm" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="InsuranceDBModelStoreContainer" CdmEntityContainer="InsuranceDBEntities">
+          <EntitySetMapping Name="Policies">
+            <EntityTypeMapping TypeName="InsuranceDBModel.Policies">
+              <MappingFragment StoreEntitySet="Policies">
+                <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+                <ScalarProperty Name="PlanNumber" ColumnName="PlanNumber" />
+                <ScalarProperty Name="InstallmentPremium" ColumnName="InstallmentPremium" />
+                <ScalarProperty Name="Insured" ColumnName="Insured" />
+                <ScalarProperty Name="SumAssured" ColumnName="SumAssured" />
+                <ScalarProperty Name="PolicyStatus" ColumnName="PolicyStatus" />
+                <ScalarProperty Name="PremiumMode" ColumnName="PremiumMode" />
+                <ScalarProperty Name="PremiumDueDate" ColumnName="PremiumDueDate" />
+                <ScalarProperty Name="Beneficiary" ColumnName="Beneficiary" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="PolicyTerm" ColumnName="PolicyTerm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PolicyType">
+            <EntityTypeMapping TypeName="InsuranceDBModel.PolicyType">
+              <MappingFragment StoreEntitySet="PolicyType">
+                <ScalarProperty Name="PlanNumber" ColumnName="PlanNumber" />
+                <ScalarProperty Name="PolicyName" ColumnName="PolicyName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Policies">
+            <EntityTypeMapping TypeName="InsuranceDBModel.vw_Policies">
+              <MappingFragment StoreEntitySet="vw_Policies">
+                <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+                <ScalarProperty Name="PolicyName" ColumnName="PolicyName" />
+                <ScalarProperty Name="InstallmentPremium" ColumnName="InstallmentPremium" />
+                <ScalarProperty Name="Insured" ColumnName="Insured" />
+                <ScalarProperty Name="SumAssured" ColumnName="SumAssured" />
+                <ScalarProperty Name="PolicyStatus" ColumnName="PolicyStatus" />
+                <ScalarProperty Name="PremiumMode" ColumnName="PremiumMode" />
+                <ScalarProperty Name="PremiumDueDate" ColumnName="PremiumDueDate" />
+                <ScalarProperty Name="Beneficiary" ColumnName="Beneficiary" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="PolicyTerm" ColumnName="PolicyTerm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetParticipantsByType" FunctionName="InsuranceDBModel.Store.usp_GetParticipantsByType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="InsuranceDBModel.usp_GetParticipantsByType_Result">
+                <ScalarProperty Name="ParticipantNo" ColumnName="ParticipantNo" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetPolicyTypes" FunctionName="InsuranceDBModel.Store.usp_GetPolicyTypes">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_InsertPolicy" FunctionName="InsuranceDBModel.Store.usp_InsertPolicy" />
+          <FunctionImportMapping FunctionImportName="usp_DeletePolicy" FunctionName="InsuranceDBModel.Store.usp_DeletePolicy" />
+          <FunctionImportMapping FunctionImportName="usp_EditPolicy" FunctionName="InsuranceDBModel.Store.usp_EditPolicy" />
+          <FunctionImportMapping FunctionImportName="usp_SearchPolicy" FunctionName="InsuranceDBModel.Store.usp_SearchPolicy">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="InsuranceDBModel.usp_SearchPolicy_Result">
+                <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+                <ScalarProperty Name="PlanNumber" ColumnName="PlanNumber" />
+                <ScalarProperty Name="InstallmentPremium" ColumnName="InstallmentPremium" />
+                <ScalarProperty Name="Insured" ColumnName="Insured" />
+                <ScalarProperty Name="SumAssured" ColumnName="SumAssured" />
+                <ScalarProperty Name="PolicyStatus" ColumnName="PolicyStatus" />
+                <ScalarProperty Name="PremiumMode" ColumnName="PremiumMode" />
+                <ScalarProperty Name="PremiumDueDate" ColumnName="PremiumDueDate" />
+                <ScalarProperty Name="Beneficiary" ColumnName="Beneficiary" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="PolicyTerm" ColumnName="PolicyTerm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

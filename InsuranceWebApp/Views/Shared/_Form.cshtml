@@ -1,0 +1,96 @@
+﻿@model InsuranceWebApp.Models.PolicyViewModel
+<div class="form">
+    <form method="post">
+        <div class="form-row row">
+            <div class="col-md-6">
+                <h2>Sign Up</h2>
+            </div>
+            <div class="col-md-6">
+            </div>
+            <div class="col-md-6 field">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text sam" id="inputGroup-sizing-default">Select Plan</span>
+                    </div>
+                    @Html.DropDownListFor(model => model.Policy.PlanNumber, Model.PolicyTypeList, "Select Plan", new { @class = "form-control form-select" })
+                </div>
+            </div>
+            <div class="col-md-6 field">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Select Insured</span>
+                    </div>
+                    @Html.DropDownListFor(model => model.Policy.InsuredId, Model.InsuredList, "Select", new { @class = "form-control form-select" })
+                </div>
+            </div>
+            <div class="col-md-6 field">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Sum Assured</span>
+                    </div>
+                    @Html.EditorFor(model => model.Policy.SumAssured, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Policy.SumAssured, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6 field">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Policy Status</span>
+                    </div>
+                    @Html.EditorFor(model => model.Policy.PolicyStatus, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Policy.PolicyStatus, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6 field">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Select Premium Mode</span>
+                    </div>
+                    @Html.DropDownListFor(model => model.Policy.PremiumMode, Model.PremiumModeList, "Select", new { @class = "form-control form-select" })
+                </div>
+            </div>
+
+            <div class="col-md-6 field">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Select Premium Due Date</span>
+                    </div>
+                    @*<input type="date" class="form-control" value="@Model.Policy.PremiumDueDate" id="PremiumDueDate" name="Policy.PremiumDueDate">*@
+                    @Html.EditorFor(model => model.Policy.PremiumDueDate, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Policy.PremiumDueDate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6 field">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Select Beneficiary</span>
+                    </div>
+                    @Html.DropDownListFor(model => model.Policy.BeneficiaryId, Model.BeneficiaryList, "Select", new { @class = "form-control form-select" })
+                </div>
+            </div>
+            <div class="col-md-6 field">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Select Owner</span>
+                    </div>
+                    @Html.DropDownListFor(model => model.Policy.OwnerId, Model.OwnerList, "Select", new { @class = "form-control form-select" })
+                </div>
+            </div>
+
+            <div class="col-md-6 field">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Policy Term</span>
+                    </div>
+                    @Html.EditorFor(model => model.Policy.PolicyTerm, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Policy.PolicyTerm, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6 field">
+            </div>
+            <div class="col-md-6">
+                <button type="submit" id="reg" class="btn btn-outline-dark btn-lg">Register</button>
+            </div>
+        </div>
+    </form>
+</div>

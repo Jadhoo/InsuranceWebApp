@@ -48,6 +48,7 @@ namespace InsuranceWebApp.Controllers
 
         public ActionResult Logout()
         {
+            Session.Clear();
             Session.Remove("Role");
             if (Request.Cookies["ASP.NET_SessionId"].Value != null)
             {

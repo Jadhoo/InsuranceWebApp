@@ -1,4 +1,5 @@
 ﻿using InsuranceWebApp.DAL;
+using InsuranceWebApp.Filter;
 using InsuranceWebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace InsuranceWebApp.Controllers
 {
+    [UnAuthorizedFilter]
     public class InsuranceController : Controller
     {
         // GET: Insurance
@@ -35,8 +37,10 @@ namespace InsuranceWebApp.Controllers
 
                     return View("Error");
                 }
+                return RedirectToAction("Policies");
             }
-            return RedirectToAction("Policies");
+            var viewModel = new PolicyViewModel();
+            return View("NewPolicy", viewModel);
         }
         public ActionResult Policies()
         {

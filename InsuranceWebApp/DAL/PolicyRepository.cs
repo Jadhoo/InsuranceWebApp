@@ -28,11 +28,12 @@ namespace InsuranceWebApp.DAL
 
         double CalculatePremium(int planNumber, double sumInsured, int term, string premiumMode)
         {
-            int months = (int)((PremiumModes)Enum.Parse(typeof(PremiumModes), premiumMode, true));
+            int months;
+            months = (int)((PremiumModes)Enum.Parse(typeof(PremiumModes), premiumMode, true));
             double premium = (sumInsured / (term * 12)) * months;
             if (planNumber == 101)
                 premium += 0.03 * premium;
-            return premium;
+            return Math.Round(premium, 2);
         }
         public void AddPolicy(Policy policy)
         {
@@ -87,6 +88,7 @@ namespace InsuranceWebApp.DAL
             }
             return participants;
         }
+
 
         public List<PolicyType> GetPolicyTypes()
         {

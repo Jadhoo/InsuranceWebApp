@@ -103,6 +103,10 @@ warning 6002: The table/view 'InsuranceDB.dbo.vw_Policies' does not have a prima
         <Function Name="usp_SearchPolicy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="policyNumber" Type="int" Mode="In" />
         </Function>
+        <Function Name="USP_USERAUTHENTICATION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="InsuranceDBModelStoreContainer">
           <EntitySet Name="Policies" EntityType="Self.Policies" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PolicyType" EntityType="Self.PolicyType" Schema="dbo" store:Type="Tables" />
@@ -234,7 +238,11 @@ warning 6002: The table/view 'InsuranceDB.dbo.vw_Policies' does not have a prima
             <Parameter Name="policyTerm" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_SearchPolicy" ReturnType="Collection(InsuranceDBModel.usp_SearchPolicy_Result)">
-            <Parameter Name="policyNumber" Mode="In" Type="Int32" />
+          <Parameter Name="policyNumber" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="USP_USERAUTHENTICATION" ReturnType="Collection(InsuranceDBModel.USP_USERAUTHENTICATION_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="usp_GetParticipantsByType_Result">
@@ -257,6 +265,12 @@ warning 6002: The table/view 'InsuranceDB.dbo.vw_Policies' does not have a prima
           <Property Type="Int32" Name="Beneficiary" Nullable="false" />
           <Property Type="Int32" Name="Owner" Nullable="false" />
           <Property Type="Int32" Name="PolicyTerm" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="USP_USERAUTHENTICATION_Result">
+          <Property Type="Int32" Name="userId" Nullable="false" />
+          <Property Type="String" Name="userName" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="password" Nullable="true" MaxLength="15" />
+          <Property Type="String" Name="role" Nullable="true" MaxLength="25" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -333,6 +347,16 @@ warning 6002: The table/view 'InsuranceDB.dbo.vw_Policies' does not have a prima
                 <ScalarProperty Name="Beneficiary" ColumnName="Beneficiary" />
                 <ScalarProperty Name="Owner" ColumnName="Owner" />
                 <ScalarProperty Name="PolicyTerm" ColumnName="PolicyTerm" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_USERAUTHENTICATION" FunctionName="InsuranceDBModel.Store.USP_USERAUTHENTICATION">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="InsuranceDBModel.USP_USERAUTHENTICATION_Result">
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="role" ColumnName="role" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

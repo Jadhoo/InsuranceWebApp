@@ -72,5 +72,15 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_USERAUTHENTICATION" FunctionName="InsuranceDBModel.Store.USP_USERAUTHENTICATION">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceDBModel.USP_USERAUTHENTICATION_Result">
+          <ScalarProperty Name="userId" ColumnName="userId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

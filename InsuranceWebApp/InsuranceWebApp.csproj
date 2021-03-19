@@ -130,7 +130,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\InsuranceController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\PolicyRepository.cs" />
+    <Compile Include="DAL\UserRepository.cs" />
+    <Compile Include="Filter\UnAuthorizedFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -152,6 +155,7 @@
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Models\Policy.cs" />
     <Compile Include="Models\PolicyViewModel.cs" />
+    <Compile Include="Models\UserAuth.cs" />
     <Compile Include="Policies.cs">
       <DependentUpon>InsuranceModel.tt</DependentUpon>
     </Compile>
@@ -168,6 +172,9 @@
     <Compile Include="usp_SearchPolicy_Result.cs">
       <DependentUpon>InsuranceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="USP_USERAUTHENTICATION_Result.cs">
+      <DependentUpon>InsuranceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="vw_Policies.cs">
       <DependentUpon>InsuranceModel.tt</DependentUpon>
     </Compile>
@@ -177,6 +184,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\Message.css" />
     <Content Include="Content\NewPolicy.css" />
     <Content Include="Content\Layout.css" />
     <Content Include="favicon.ico" />
@@ -226,7 +235,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Insurance\NewPolicy.cshtml" />
     <Content Include="Views\Insurance\Policies.cshtml" />
-    <Content Include="Views\Insurance\Some.cshtml" />
+    <Content Include="Views\Shared\_Layout1.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Shared\_Form.cshtml" />
+    <Content Include="Views\Insurance\Edit.cshtml" />
+    <Content Include="Views\User\Unauthorize.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

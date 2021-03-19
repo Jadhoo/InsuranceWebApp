@@ -106,6 +106,10 @@
     <FunctionImport Name="usp_SearchPolicy" ReturnType="Collection(InsuranceDBModel.usp_SearchPolicy_Result)">
       <Parameter Name="policyNumber" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="USP_USERAUTHENTICATION" ReturnType="Collection(InsuranceDBModel.USP_USERAUTHENTICATION_Result)">
+      <Parameter Name="username" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="usp_GetParticipantsByType_Result">
     <Property Type="Int32" Name="ParticipantNo" Nullable="false" />
@@ -127,5 +131,11 @@
     <Property Type="Int32" Name="Beneficiary" Nullable="false" />
     <Property Type="Int32" Name="Owner" Nullable="false" />
     <Property Type="Int32" Name="PolicyTerm" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="USP_USERAUTHENTICATION_Result">
+    <Property Type="Int32" Name="userId" Nullable="false" />
+    <Property Type="String" Name="userName" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="role" Nullable="true" MaxLength="25" />
   </ComplexType>
 </Schema>

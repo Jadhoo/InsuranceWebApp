@@ -16,7 +16,7 @@ namespace InsuranceWebApp
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Insurance", action = "NewPolicy", id = UrlParameter.Optional }
+                defaults: new { controller = "User", action = "Login", id = UrlParameter.Optional }
             );
         }
     }

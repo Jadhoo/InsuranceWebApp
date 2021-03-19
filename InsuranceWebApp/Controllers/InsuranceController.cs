@@ -13,8 +13,9 @@ namespace InsuranceWebApp.Controllers
         // GET: Insurance
         [HttpGet]
         public ActionResult NewPolicy()
-        {
+        { 
             var viewModel = new PolicyViewModel();
+            ViewBag.Operation = "Submit";
             return View(viewModel);
         }
         [HttpPost]
@@ -32,10 +33,10 @@ namespace InsuranceWebApp.Controllers
                 catch (Exception)
                 {
 
-                    return View();
+                    return View("Error");
                 }
             }
-            return View("Error");
+            return RedirectToAction("Policies");
         }
         public ActionResult Policies()
         {
@@ -54,7 +55,8 @@ namespace InsuranceWebApp.Controllers
             {
                 viewModel.Policy = pr.SearchPolicy(id);
             }
-            return View("NewPolicy", viewModel);
+            ViewBag.Operation = "Save";
+            return View(viewModel);
         }
         [HttpPost]
         public ActionResult Edit(Policy policy, int id)
@@ -89,6 +91,11 @@ namespace InsuranceWebApp.Controllers
                 }
             }
             return RedirectToAction("Policies");
+        }
+
+        public ActionResult Logout()
+        {
+            return RedirectToAction("Logout", "User");
         }
     }
 }

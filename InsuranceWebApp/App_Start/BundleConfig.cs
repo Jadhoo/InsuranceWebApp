@@ -27,6 +27,10 @@ namespace InsuranceWebApp
                       "~/Content/Layout.css"));
             bundles.Add(new StyleBundle("~/Style/css").Include(
                       "~/Content/NewPolicy.css"));
+            bundles.Add(new StyleBundle("~/Style1/css").Include(
+                      "~/Content/Login.css"));
+            bundles.Add(new StyleBundle("~/Msg/css").Include(
+                      "~/Content/Message.css"));
         }
     }
 }

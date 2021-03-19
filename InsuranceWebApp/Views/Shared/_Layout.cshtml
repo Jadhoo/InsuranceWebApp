@@ -18,13 +18,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        @Html.ActionLink("Sign Up", "Register", "User", new { @class = "nav-link" })
+                        @Html.ActionLink("New Policy", "NewPolicy", "Insurance", new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        @Html.ActionLink("Log In", "Register", "User", new { @class = "nav-link" })
+                        @Html.ActionLink("View Policies", "Policies", "Insurance", new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link 3</a>
+                        @Html.ActionLink("Log Out", "Logout", "Insurance", new { @class = "nav-link" })
                     </li>
                 </ul>
             </div>

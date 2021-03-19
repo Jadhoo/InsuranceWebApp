@@ -161,5 +161,18 @@ namespace InsuranceWebApp
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_SearchPolicy_Result>("usp_SearchPolicy", policyNumberParameter);
         }
+    
+        public virtual ObjectResult<USP_USERAUTHENTICATION_Result> USP_USERAUTHENTICATION(string username, string password)
+        {
+            var usernameParameter = username != null ?
+                new ObjectParameter("username", username) :
+                new ObjectParameter("username", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("password", password) :
+                new ObjectParameter("password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_USERAUTHENTICATION_Result>("USP_USERAUTHENTICATION", usernameParameter, passwordParameter);
+        }
     }
 }

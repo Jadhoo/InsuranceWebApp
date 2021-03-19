@@ -1,12 +1,10 @@
 ﻿@model InsuranceWebApp.Models.PolicyViewModel
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Policy";
     Layout = "~/Views/Shared/_Layout1.cshtml";
 }
 
 @Styles.Render("~/Style/css")
 
-<h2>Edit</h2>
 
 @{Html.RenderPartial("_Form", Model);}
-

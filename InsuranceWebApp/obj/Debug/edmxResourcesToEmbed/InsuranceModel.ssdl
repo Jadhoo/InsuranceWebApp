@@ -98,6 +98,10 @@ warning 6002: The table/view 'InsuranceDB.dbo.vw_Policies' does not have a prima
   <Function Name="usp_SearchPolicy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="policyNumber" Type="int" Mode="In" />
   </Function>
+  <Function Name="USP_USERAUTHENTICATION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="varchar" Mode="In" />
+    <Parameter Name="password" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="InsuranceDBModelStoreContainer">
     <EntitySet Name="Policies" EntityType="Self.Policies" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PolicyType" EntityType="Self.PolicyType" Schema="dbo" store:Type="Tables" />

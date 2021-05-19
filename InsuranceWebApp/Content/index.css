@@ -1,0 +1,109 @@
+﻿body {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    padding: 5% 12%;
+}
+
+#header,
+#testimonials {
+    padding: 0;
+}
+
+
+
+#header {
+    background-image: url("https://github.com/Jadhoo/InsuranceWebApp/blob/main/InsuranceWebApp/Images/Friends.png?raw=true");
+    height: 740px;
+    border: none;
+}
+.nav-link {
+    color: aliceblue;
+}
+    .section-heading {
+    font-size: 3.5rem;
+    line-height: 1.5;
+}
+
+.welcome {
+    color: aliceblue;
+}
+
+.welcome-note {
+    font-family: "Fira Sans Condensed", sans-serif;
+    font-weight: 400;
+    font-size: 5rem;
+}
+
+.feature-box img {
+    width: 25%;
+}
+
+/* FEATURE BOX */
+
+.feature-box {
+    padding: 5%;
+}
+
+.feature-title {
+    font-size: 1.48rem;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+/* FEATURE ICONS */
+
+.feature-icons {
+    padding-bottom: 1rem;
+}
+
+.plans-column {
+    padding: 8% 4% 3%;
+}
+
+#testimonials {
+    background-color: aqua;
+}
+
+.testimonial-text {
+    font-size: 3.2rem;
+    line-height: 1.5;
+}
+
+.testimonial-image {
+    margin: 20px;
+    width: 10%;
+    border-radius: 100%;
+}
+
+.carousel-item {
+    padding: 5% 12%;
+}
+
+.card-title {
+    color: #fa944b;
+    font-family: "Paytone One", sans-serif;
+    font-weight: 400;
+    font-size: 2.2rem;
+}
+
+.card-text {
+    font-size: 0.85rem;
+    font-family: "Alef", sans-serif;
+    color: #595959;
+}
+
+.col-header,
+.col-content {
+    font-size: 1rem;
+    color: #595959;
+}
+
+.btn3 {
+    margin-top: 20px;
+}
+

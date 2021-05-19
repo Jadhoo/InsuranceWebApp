@@ -42,13 +42,13 @@
     <Property Name="PolicyNumber" Type="Int32" Nullable="false" />
     <Property Name="PolicyName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="InstallmentPremium" Type="Double" Nullable="false" />
-    <Property Name="Insured" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Insured" Type="String" MaxLength="77" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="SumAssured" Type="Double" Nullable="false" />
     <Property Name="PolicyStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PremiumMode" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PremiumDueDate" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="Beneficiary" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="Owner" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Beneficiary" Type="String" MaxLength="77" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Owner" Type="String" MaxLength="77" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="PolicyTerm" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="FK__Policies__PlanNu__2B3F6F97">

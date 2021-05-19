@@ -1,0 +1,293 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- bootstrap cdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+          crossorigin="anonymous" />
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Ubuntu&display=swap"
+          rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alef&family=Caveat&family=Fira+Sans+Condensed&family=Paytone+One&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/17ed82a084.js" crossorigin="anonymous"></script>
+
+    <!-- custom style -->
+    <link href="~/Content/index.css" rel="stylesheet" />
+    <link href="~/Content/nav.css" rel="stylesheet" />
+    <title>Jadoo</title>
+</head>
+<body>
+    <section id="header">
+        <div class="container-fluid">
+
+            <!-- Nav Bar -->
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="~/Images/Jadoo-logo.svg" alt="logo" width="120" height="120" class="d-inline-block align-middle logo">
+                        <span class="tagline">Zindagi na milegi dobara!</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                @Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link" })
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#plans">Plans</a>
+                            </li>
+                            <li class="nav-item">
+                                @Html.ActionLink("Log In", "Login", "User", new { @class="nav-link"})
+                                @*<a class="nav-link" href="#">Login</a>*@
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="welcome">
+                <i class="fas fa-praying-hands fa-7x"></i>
+                <h1 class="welcome-note">Welcome to Jadoo</h1>
+            </div>
+        </div>
+    </section>
+    <section class="white-section" id="features">
+
+        <div class="container-fluid">
+            <div class="row row-cols-lg-3 row-cols-1">
+
+                <div class="col feature-box">
+                    <img class="feature-icons" src="~/Images/piggy-bank.png" alt="loan-image">
+
+                    <h3 class="feature-title">Financial Security.</h3>
+                    <p>Money from a life insurance can act as a cushion and ensure your family's life goals are not affected.</p>
+                </div>
+
+                <div class="col feature-box">
+                    <img class="feature-icons" src="~/Images/loan.png" alt="loan-image">
+                    <h3 class="feature-title">Prevent Loan  Burden.</h3>
+                    <p>Loans can be repaid without the risk of our family losing an asset or stressing about arranging funds.</p>
+                </div>
+
+                <div class="col feature-box">
+                    <img class="feature-icons" src="~/Images/taxes.png" alt="loan-image">
+                    <h3 class="feature-title">Tax Benefits.</h3>
+                    <p>You can avail annual tax deductions up to Rs 1.5 lakh under Section 80C for life insurance premiums paid.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <section id="testimonials">
+        <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#testimonial-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#testimonial-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#testimonial-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active container-fluid" data-bs-interval="500">
+                    <h2 class="testimonial-text">I have got the Jadoo term insurance. The maturity year is pretty good and I am much happy with my term plan.</h2>
+                    <img class="testimonial-image" src="~/Images/lady-img.jpg" alt="customer-profile">
+                    <em>Elsa, Delhi</em>
+                </div>
+
+                <div class="carousel-item container-fluid" data-bs-interval="500">
+                    <h2 class="testimonial-text">I am a business man and with Jadoo Ulip Plan I am enjoying dual benefits of premium paid and insurance protection. Good Service.</h2>
+                    <img class="testimonial-image" src="~/Images/man.jpg" alt="customer-profile">
+                    <em>Sam, Mumbai</em>
+                </div>
+
+                <div class="carousel-item container-fluid" data-bs-interval="500">
+                    <h2 class="testimonial-text">I bought Jadoo plan recently. I found the financial stability and coverage under this plan. It is best plan for my retirement.</h2>
+                    <img class="testimonial-image" src="~/Images/women2.jpg" alt="customer-profile">
+                    <em>Marry, Goa</em>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonial-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonial-carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+    </section>
+
+    <section id="plans">
+        <h2 class="section-heading">Popular Plans</h2>
+        <div class="row">
+
+            <div class="plans-column col-lg-4 col-md-6">
+                <div class="card">
+                    <img src="~/Images/Couple.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Jeevan Anand</h5>
+                        <p class="card-text">Zindagi Ke Saath bhi, Zindagi Ke baad  bi</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="col-header">Entry Age</span>
+                            <span class="col-content">18 to 50 years</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-header">Maturity Age</span>
+                            <span class="col-content">Up to 75 years</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-header">Policy Term</span>
+                            <span class="col-content">15 to 35 years</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-header">Minimum Sum Assured</span>
+                            <span class="col-content">₹1,00,000</span>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-info btn-lg">Know More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="plans-column col-lg-4 col-md-6">
+                <div class="card">
+                    <img src="~/Images/family.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Tech Term</h5>
+                        <p class="card-text">Click and Insure... Secure Smiles Forever</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <span class="col-header">Entry Age</span>
+                            <span class="col-content">18 to 65 years</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-header">Maturity Age</span>
+                            <span class="col-content">28 to 80 years</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-header">Policy Term</span>
+                            <span class="col-content">10 to 40 years</span>
+                        </li>
+                        <li class="list-group-item">
+                            <span class="col-header">Minimum Sum Assured</span>
+                            <span class="col-content">₹6,00,000</span>
+                        </li>
+                    </ul>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-info btn-lg">Know More</button>
+                    </div>
+                </div>
+            </div>
+            <div class="plans-column col-lg-4 col-md-6">
+                <div class="card">
+                    <img src="~/Images/Girlphone.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Other Policies</h5>
+                        <p class="card-text">Zindagi Ke Saath bhi, Zindagi Ke baad  bi</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Motor Insurance</li>
+                        <li class="list-group-item">Health Insurance</li>
+                        <li class="list-group-item">Travel Insurance</li>
+                        <li class="list-group-item">Property Insurance</li>
+                    </ul>
+                    <div class="card-body">
+                        <button type="button" class="btn btn-info btn-lg btn3">View More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="mainfooter" role="contentinfo">
+        <div class="footer-middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <!--Column1-->
+                        <div class="footer-pad">
+                            <h4>Explore</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="#"></a></li>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Careers</a></li>
+                                <li><a href="#">News and Updates</a></li>
+                                <li><a href="#">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!--Column1-->
+                        <div class="footer-pad">
+                            <h4>Legal</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="#">Terms and Conditions</a></li>
+                                <li><a href="#">Disclaimer</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!--Column1-->
+                        <div class="footer-pad address">
+                            <h4>Address</h4>
+                            <ul class="list-unstyled">
+                                <li>Lincoln House</li>
+                                <li>78 Bhulabhai Desai Road</li>
+                                <li>Mumbai 400 026</li>
+                                <li>Phone: (22) 2363-3611</li>
+                                <li>Fax: (22) 2363-0350</li>
+                                <li>
+                                    <a href="#"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>Follow Us</h4>
+                        <ul class="social-network social-circle">
+                            <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 copy">
+                        <p class="text-center">&copy; Copyright 2021 - Jadoo.  All rights reserved.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+</body>
+</html>

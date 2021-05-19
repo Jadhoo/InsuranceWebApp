@@ -9,11 +9,9 @@ namespace InsuranceWebApp.Models
     public class Policy
     {
         [Display(Name = "Policy No")]
-        [Required(ErrorMessage = "This is a mandatory field")]
         public int PolicyNumber { get; set; }
         [Required(ErrorMessage = "This is a mandatory field")]
         public int PlanNumber { get; set; }
-        [Required(ErrorMessage = "This is a mandatory field")]
         [Display(Name = "Plan")]
         public string PolicyName { get; set; }
         [Required(ErrorMessage = "This is a mandatory field")]
@@ -21,7 +19,6 @@ namespace InsuranceWebApp.Models
         public double InstallmentPremium { get; set; }
         [Required(ErrorMessage = "This is a mandatory field")]
         public int InsuredId { get; set; }
-        [Required(ErrorMessage = "This is a mandatory field")]
         [Display(Name = "Insured")]
         public string InsuredName { get; set; }
         [Required(ErrorMessage = "This is a mandatory field")]

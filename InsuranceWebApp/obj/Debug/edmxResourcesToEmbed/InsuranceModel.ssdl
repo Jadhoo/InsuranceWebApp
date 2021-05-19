@@ -42,13 +42,13 @@ warning 6002: The table/view 'InsuranceDB.dbo.vw_Policies' does not have a prima
     <Property Name="PolicyNumber" Type="int" Nullable="false" />
     <Property Name="PolicyName" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="InstallmentPremium" Type="float" Nullable="false" />
-    <Property Name="Insured" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Insured" Type="varchar" MaxLength="77" Nullable="false" />
     <Property Name="SumAssured" Type="float" Nullable="false" />
     <Property Name="PolicyStatus" Type="varchar" MaxLength="25" Nullable="false" />
     <Property Name="PremiumMode" Type="varchar" MaxLength="25" Nullable="false" />
     <Property Name="PremiumDueDate" Type="date" Nullable="false" />
-    <Property Name="Beneficiary" Type="varchar" MaxLength="25" Nullable="false" />
-    <Property Name="Owner" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="Beneficiary" Type="varchar" MaxLength="77" Nullable="false" />
+    <Property Name="Owner" Type="varchar" MaxLength="77" Nullable="false" />
     <Property Name="PolicyTerm" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK__Policies__PlanNu__2B3F6F97">

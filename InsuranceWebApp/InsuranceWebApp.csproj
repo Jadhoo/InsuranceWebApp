@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>InsuranceWebApp</RootNamespace>
     <AssemblyName>InsuranceWebApp</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -26,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -129,6 +130,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsuranceController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="DAL\PolicyRepository.cs" />
@@ -184,14 +186,28 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\index.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Message.css" />
+    <Content Include="Content\nav.css" />
     <Content Include="Content\NewPolicy.css" />
     <Content Include="Content\Layout.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Couple.png" />
+    <Content Include="Images\family.jpg" />
+    <Content Include="Images\Friends.png" />
+    <Content Include="Images\Girlphone.png" />
+    <Content Include="Images\jadhooimg.png" />
+    <Content Include="Images\Jadoo-logo.svg" />
+    <Content Include="Images\lady-img.jpg" />
+    <Content Include="Images\loan.png" />
+    <Content Include="Images\man.jpg" />
+    <Content Include="Images\piggy-bank.png" />
+    <Content Include="Images\taxes.png" />
+    <Content Include="Images\women2.jpg" />
     <Content Include="InsuranceModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InsuranceModel.edmx</DependentUpon>
@@ -240,6 +256,8 @@
     <Content Include="Views\Shared\_Form.cshtml" />
     <Content Include="Views\Insurance\Edit.cshtml" />
     <Content Include="Views\User\Unauthorize.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Insurance\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -21,7 +21,11 @@ body {
 
 
 .form {
-    margin: 15% 5% 10% 5%;
+    margin: 3% 5% 10% 5%;
+}
+
+.page-content {
+    margin: 0 5% 10% 5%;
 }
 
 button {
@@ -38,10 +42,6 @@ h2 {
     padding: 20px 10px;
 }
 
-
-.table {
-    font-size: 14px;
-}
 
 p {
     margin-top: 50px;

@@ -25,6 +25,8 @@ namespace InsuranceWebApp
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/Layout.css"));
+            bundles.Add(new StyleBundle("~/nav/css").Include(
+                "~/Content/nav.css"));
             bundles.Add(new StyleBundle("~/Style/css").Include(
                       "~/Content/NewPolicy.css"));
             bundles.Add(new StyleBundle("~/Style1/css").Include(

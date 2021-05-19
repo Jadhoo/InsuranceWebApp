@@ -80,6 +80,11 @@ namespace InsuranceWebApp.Controllers
             }
             return RedirectToAction("Policies");
         }
+
+        public ActionResult Details(Policy policy,int id = 1)
+        {
+            return View(policy);
+        }
         public ActionResult Delete(int id)
         {
             using (PolicyRepository pr = new PolicyRepository())

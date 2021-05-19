@@ -26,6 +26,13 @@ namespace InsuranceWebApp.DAL
             Monthly = 1
         }
 
+
+        /// <summary>This method calculates the premium to be paid
+        /// based on the inputs given by the user </summary>
+        /// <param name="planNumber">The plan number to which the policy owner is enrolled to.</param>
+        /// <param name="sumInsured">the sum insured amount for the respective policy.</param>
+        /// <param name="term">the term of the policy in years.</param>
+        /// <param name="premiumMode">the premium mode which can be annual, semi-annual, quarterly or monthly
         double CalculatePremium(int planNumber, double sumInsured, int term, string premiumMode)
         {
             int months;
@@ -35,6 +42,10 @@ namespace InsuranceWebApp.DAL
                 premium += 0.03 * premium;
             return Math.Round(premium, 2);
         }
+
+
+        /// <summary>This methods adds a new policy details to the database
+        /// <param name="policy">The policy object of class Policy which is to be added to the db</param>
         public void AddPolicy(Policy policy)
         {
             policy.InstallmentPremium = CalculatePremium(policy.PlanNumber, policy.SumAssured, policy.PolicyTerm, policy.PremiumMode);
@@ -49,6 +60,8 @@ namespace InsuranceWebApp.DAL
             GC.Collect();
         }
 
+
+        /// <summary>This methods retrieves all the rows from the db
         public List<Policy> GetAllPolicies()
         {
             List<Policy> policies;
@@ -72,6 +85,8 @@ namespace InsuranceWebApp.DAL
             return policies;
         }
 
+        /// <summary>This methods retrieves the participants in a policy based on their type
+        /// <param name="participantType">The participantType can be either owner or insured or beneficiary
         public List<Participant> GetParticipantsByType(string participantType)
         {
             List<Participant> participants;
@@ -90,6 +105,7 @@ namespace InsuranceWebApp.DAL
         }
 
 
+        /// <summary>This methods retrieves all the rows from the PoliciesType table
         public List<PolicyType> GetPolicyTypes()
         {
             List<PolicyType> policyTypes;
@@ -100,6 +116,9 @@ namespace InsuranceWebApp.DAL
             }
         }
 
+
+        /// <summary>This methods updates an existing row in the dbo.Policies table
+        /// <param name="policy">This contains the row which is to be edited</param>
         public void EditPolicy(Policy policy)
         {
             policy.InstallmentPremium = CalculatePremium(policy.PlanNumber, policy.SumAssured, policy.PolicyTerm, policy.PremiumMode);
@@ -110,6 +129,8 @@ namespace InsuranceWebApp.DAL
             }
         }
 
+        /// <summary>This methods searches for a record in the dbo.Policies table based on it's id
+        /// <param name="id">The id of the record to be searched for in dbo.Policies table</param>
         public Policy SearchPolicy(int policyNumber)
         {
             Policy searchedPolicy;
@@ -132,6 +153,9 @@ namespace InsuranceWebApp.DAL
             }
         }
 
+
+        /// <summary>This methods deletes a record in the dbo.Policies table based on it's id
+        /// <param name="id">The id of the record to be deleted from dbo.Policies table</param>
         public void DeletePolicy(int policyNumber)
         {
             using (InsuranceDBEntities db = new InsuranceDBEntities())

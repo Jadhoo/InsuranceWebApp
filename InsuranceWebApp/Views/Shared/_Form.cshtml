@@ -13,6 +13,7 @@
                         <span class="input-group-text sam" id="inputGroup-sizing-default">Select Plan</span>
                     </div>
                     @Html.DropDownListFor(model => model.Policy.PlanNumber, Model.PolicyTypeList, "Select Plan", new { @class = "form-control form-select" })
+                    <br/>
                     @Html.ValidationMessageFor(model => model.Policy.PlanNumber, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -56,7 +57,7 @@
             <div class="col-md-6 field">
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Select Premium Due Date</span>
+                        <span class="input-group-text" id="inputGroup-sizing-default">Premium Due Date</span>
                     </div>
                     @*<input type="date" class="form-control" value="@Model.Policy.PremiumDueDate" id="PremiumDueDate" name="Policy.PremiumDueDate">*@
                     @Html.EditorFor(model => model.Policy.PremiumDueDate, new { htmlAttributes = new { @class = "form-control" } })
